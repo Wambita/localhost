@@ -18,6 +18,8 @@
   - [Classes](#classes)
   - [Sequence](#sequence)
 - [Usage](#usage)
+- [Contributors](#contributors)
+  - [Authors](#authors)
 
 ## Tech Stack
 
@@ -346,3 +348,10 @@ cargo r
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 33.53s
      Running `target/debug/localhost`
 ```
+
+## Contributors
+
+### Authors
+
+[shfana](http://learn.zone01kisumu.ke/git/shfana)
+[rogwel](http://learn.zone01kisumu.ke/git/rogwel)
