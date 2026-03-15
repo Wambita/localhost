@@ -1,0 +1,90 @@
+# ----- Build Settings -----
+
+# Where to store build artifacts
+# Default: "target"
+target-dir = "target"
+
+# Number of parallel jobs for compilation
+# Default: number of CPUs
+jobs = 2
+
+# Additional rustc flags
+# Default: []
+rustflags = ["-C", "target-cpu=native"]
+
+
+# ----- Profile Settings -----
+
+[profile.dev]
+# Optimization level (0-3)
+# Default: 0
+opt-level = 0
+
+# Include debug info
+# Default: true
+debug = true
+
+[profile.release]
+# Optimization level (0-3, s, z)
+# Default: 3
+opt-level = 3
+
+# Link time optimization
+# Default: false
+lto = "thin"
+
+# Panic strategy
+# Default: unwind
+panic = "abort"
+
+
+# ----- Environment Variables -----
+
+[env]
+# Show backtraces on panic
+# Default: 0
+RUST_BACKTRACE = "1"
+
+# Logging level
+# Default: none
+RUST_LOG = "debug"
+
+
+# ----- Target Specific Settings -----
+
+[target.x86_64-unknown-linux-gnu]
+# Linker to use
+# Default: gcc/cc
+linker = "clang"
+
+# Additional flags for this target
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+
+# ----- Network Settings -----
+
+[net]
+# Number of retries
+# Default: 2
+retry = 3
+
+[http]
+# Timeout in seconds
+# Default: 30
+timeout = 30
+
+# Check certificate revocation
+# Default: true
+check-revoke = true
+
+
+# ----- Registry Settings -----
+
+[registry]
+# Default registry to use
+# Default: crates-io
+default = "crates-io"
+
+# Use sparse protocol
+# Default: false
+sparse-protocol = true
