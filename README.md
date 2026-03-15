@@ -260,3 +260,78 @@ title TCP Connection
   deactivate Client
   Note over Client,Server: Disconnected
 ```
+
+## Usage
+
+```shell
+cargo r
+   Compiling memchr v2.7.4
+   Compiling siphasher v1.0.1
+   Compiling serde v1.0.217
+   Compiling regex-syntax v0.8.5
+   Compiling phf_shared v0.11.3
+   Compiling phf_generator v0.11.3
+   Compiling aho-corasick v1.1.3
+   Compiling phf_codegen v0.11.3
+   Compiling phf v0.11.3
+   Compiling thiserror v2.0.11
+   Compiling crossbeam-utils v0.8.21
+   Compiling regex-automata v0.4.9
+   Compiling libc v0.2.169
+   Compiling cfg-if v1.0.0
+   Compiling ucd-trie v0.1.7
+   Compiling byteorder v1.5.0
+   Compiling pest v2.7.15
+   Compiling getrandom v0.2.15
+   Compiling zerocopy v0.7.35
+   Compiling crossbeam-epoch v0.9.18
+   Compiling chrono-tz-build v0.3.0
+   Compiling bstr v1.11.3
+   Compiling same-file v1.0.6
+   Compiling log v0.4.25
+   Compiling unic-common v0.9.0
+   Compiling unic-char-range v0.9.0
+   Compiling unic-ucd-version v0.9.0
+   Compiling pest_meta v2.7.15
+   Compiling unic-char-property v0.9.0
+   Compiling globset v0.4.15
+   Compiling walkdir v2.5.0
+   Compiling chrono-tz v0.9.0
+   Compiling num-traits v0.2.19
+   Compiling ppv-lite86 v0.2.20
+   Compiling crossbeam-deque v0.8.6
+   Compiling rand_core v0.6.4
+   Compiling hashbrown v0.15.2
+   Compiling iana-time-zone v0.1.61
+   Compiling equivalent v1.0.2
+   Compiling chrono v0.4.39
+   Compiling rand_chacha v0.3.1
+   Compiling ignore v0.4.23
+   Compiling indexmap v2.7.1
+   Compiling pest_generator v2.7.15
+   Compiling unic-ucd-segment v0.9.0
+   Compiling libm v0.2.11
+   Compiling toml_datetime v0.6.8
+   Compiling serde_spanned v0.6.8
+   Compiling bitflags v2.8.0
+   Compiling itoa v1.0.14
+   Compiling ryu v1.0.19
+   Compiling deunicode v1.6.0
+   Compiling winnow v0.7.2
+   Compiling serde_json v1.0.138
+   Compiling globwalk v0.9.1
+   Compiling slug v0.1.6
+   Compiling humansize v2.1.3
+   Compiling unic-segment v0.9.0
+   Compiling pest_derive v2.7.15
+   Compiling rand v0.8.5
+   Compiling regex v1.11.1
+   Compiling toml_edit v0.22.24
+   Compiling percent-encoding v2.3.1
+   Compiling lazy_static v1.5.0
+   Compiling tera v1.20.0
+   Compiling toml v0.8.20
+   Compiling localhost v0.1.0 (/home/student/localhost)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 33.53s
+     Running `target/debug/localhost`
+```
