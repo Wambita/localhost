@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rust</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 0; padding: 1.6rem; }
+            h1, h3 { margin: 0; padding: 0; }
+            li { cursor: pointer; }
+            .directory { font-weight: bold; }
+            .item { display: flex; padding: 0.7rem;
+                border-bottom: 1px solid #eee;
+            }
+            .name {
+                flex: 1;
+            }
+            .size {
+                width: 9rem;
+                text-align: right;
+            }
+            .actions {
+                width: 5rem;
+                text-align: center;
+            }
+            .delete-btn {
+                background-color: #ff4444;
+                color: white;
+                border: none;
+                padding: 4px 8px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .delete-btn:hover {
+                background-color: #cc0000;
+            }
+            
+            .upload-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 10px;
+                background-color: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+            .upload-btn:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>File explorer</h1>
+        <h3 id="current_path"></h3>
+        <div class="item">
+            <div class="name"><strong>Name</strong></div>
+            <div class="size"><strong>Size</strong></div>
+            <!-- <div class="date"><strong>Last Modified</strong></div> -->
+        </div>
+        {% for item in list %}
+        <div class="item">
+            <div class="name {% if item.is_dir %}directory{% endif %}">
+                <a href="{{ item.link }}">{{ item.name }}</a>
+            </div>
+            <div class="actions">
+                {% if item.in_upload_dir %}
+                <button
+                    class="delete-btn"
+                    onclick="deleteItem('{{ item.name }}')"
+                >
+                    Delete
+                </button>
+                {% endif %}
+            </div>
+            <div class="size">{{ item.size }}</div>
+            <!-- <div class="date">{{ item.modified_at | date(format="%Y-%m-%d %H:%M:%S") }}</div> -->
+        </div>
+        {% endfor %}
+        <a href="/upload" class="upload-btn">Upload</a>
+
+        <script>
+            async function deleteItem(itemName, isDirectory) {
+                try {
+                    const response = await fetch(`/delete/${itemName}`, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name: itemName,
+                            is_directory: isDirectory,
+                        }),
+                    });
+
+                    if (response.ok) {
+                        // Reload the page after successful deletion
+                        window.location.reload();
+                    } else {
+                        let responseText = await response.text();
+                        // alert(`Failed to delete item: ${responseText}`);
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    // alert("Error occurred while deleting item");
+                }
+            }
+        </script>
+    </body>
+</html>
