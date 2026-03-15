@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            h1 {
+                color: #333;
+            }
+            .success-message {
+                background-color: #dff0d8;
+                color: #3c763d;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            ul {
+                background-color: #f5f5f5;
+                padding: 15px;
+                border-radius: 5px;
+            }
+            li {
+                margin-bottom: 8px;
+            }
+            a {
+                display: inline-block;
+                margin-top: 20px;
+                color: #337ab7;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+
+        <div class="success-message">
+            Files have been successfully uploaded.
+        </div>
+
+        <a href="/upload">Upload Another File</a>
+        <a href="/">Back to Home</a>
+    </body>
+</html>
