@@ -1,0 +1,18 @@
+[package]
+name = "localhost"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = "0.4.23"
+tera = "1.20.0"
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8.19"
+libc = "0.2.160"
+kqueue = { version = "1.0.8", optional = true }
+rand = "0.8.5"
+lazy_static = "1.4"
+windows = {version = "0.60.0", features = ["Win32"], optional = true}
+regex = "1.11.1"
+urlencoding = "2.1.3"
