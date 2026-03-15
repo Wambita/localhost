@@ -1,0 +1,33 @@
+{
+    "root_directory": "public",
+    "allowed_extensions": [
+        ".txt",
+        ".md",
+        ".pdf",
+        ".jpg",
+        ".png"
+    ],
+    "hidden_files": [
+        ".git",
+        ".DS_Store",
+        "Thumbs.db"
+    ],
+    "view_options": {
+        "show_hidden": false,
+        "sort_by": "name",
+        "sort_direction": "asc",
+        "view_type": "list"
+    },
+    "file_types": {
+        "documents": [".txt", ".md", ".pdf", ".doc"],
+        "images": [".jpg", ".png", ".gif"],
+        "code": [".py", ".rs", ".js", ".html"]
+    },
+    "default_icons": {
+        "folder": "📁",
+        "file": "📄",
+        "image": "🖼️",
+        "document": "📝",
+        "code": "💻"
+    }
+}
