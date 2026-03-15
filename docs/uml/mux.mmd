@@ -1,0 +1,66 @@
+sequenceDiagram
+    participant Server
+    participant Listener
+    participant Client
+    participant System
+
+    Server->>System: Create epoll instance
+    Server->>Listener: Bind and Listen
+    Server->>System: Add Listener to epoll (EPOLLIN)
+
+    loop Event Loop
+        Server->>System: epoll_wait (Wait for events)
+        System->>Server: Event Ready (e.g., EPOLLIN on Listener or Client)
+
+        alt Event on Listener (EPOLLIN)
+            Server->>Listener: accept()
+            Listener->>Server: New Client Socket (FD)
+            Server->>Client: Set Non-blocking
+            Server->>System: Add Client to epoll (EPOLLIN | EPOLLOUT)
+            Server->>Server: Store Client State (FD -> Stream, Buffer, etc.)
+        else Event on Client (EPOLLIN - Read Ready)
+            Server->>Server: Get Client State (using FD)
+            Server->>Client: read_buffer() (Non-blocking)
+            Client->>Server: HTTP Request Data (or EAGAIN/Error)
+            alt Data Received (Request Complete)
+                Server->>Router: Route Request
+                Router->>Handler: Process Request
+                Handler->>Router: HTTP Response
+                Router->>Server: HTTP Response
+                Server->>Server: Buffer Response for Client
+                Server->>System: Modify Client in epoll (Change to EPOLLOUT for Write Readiness)
+                Server->>System: epoll_ctl MOD Client FD for EPOLLOUT
+            else Read Error or Incomplete
+                Server->>Server: Handle Read Error (Log, Close if Fatal)
+                Server->>System: Remove Client from epoll
+                Server->>Client: shutdown()
+                Server->>Server: Cleanup Client State
+            end
+        else Event on Client (EPOLLOUT - Write Ready)
+            Server->>Server: Get Client State (using FD)
+            Server->>Server: Check Response Buffer
+            alt Response Buffer has Data
+                Server->>Client: Non-blocking write() (send part of response)
+                Client->>Server: Bytes Written (or EAGAIN/Error)
+                alt Write Successful (Buffer Emptied)
+                    Server->>Server: Response Sent
+                    Server->>System: Modify Client in epoll (Change back to EPOLLIN for next request, or Remove if done)
+                    Server->>System: epoll_ctl MOD Client FD for EPOLLIN or DEL Client FD
+                    Server->>Server: Cleanup Response Buffer
+                else Write Error or EAGAIN/Partial Write
+                    Server->>Server: Handle Write Error (Log, Close if Fatal)
+                    Server->>Server: Update Response Buffer (if partial write)
+                    Server->>System: If Fatal Error, Remove Client from epoll, Shutdown, Cleanup
+                end
+            else No Data in Response Buffer (Error State or Nothing to Send)
+                Server->>System: Modify Client in epoll (Change back to EPOLLIN for next request, or Remove if done)
+                Server->>System: epoll_ctl MOD Client FD for EPOLLIN or DEL Client FD
+                Server->>Server: Handle Error State or Wait for Next Request
+            end
+        else Event on Client (EPOLLHUP, EPOLLERR - Error/Hangup)
+            Server->>Server: Handle Client Error/Hangup (Log)
+            Server->>System: Remove Client from epoll
+            Server->>Client: shutdown()
+            Server->>Server: Cleanup Client State
+        end
+    end
