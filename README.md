@@ -8,6 +8,17 @@
 
 - This is a project built on Rust and is supposed to emulate a localhost server and should be bindable to a port.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Tech Stack](#tech-stack)
+  - [TCP Header](#tcp-header)
+- [Architecture](#architecture)
+  - [Classes](#classes)
+  - [Sequence](#sequence)
+- [Usage](#usage)
+
 ## Tech Stack
 
 [![RUST](https://img.shields.io/badge/Rust-black?style=for-the-badge&logo=rust&logoColor=#E57324)](./src/main.rs)
