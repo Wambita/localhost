@@ -1,0 +1,56 @@
+size_limit = 2097152
+
+[[servers]]
+host = "localhost"
+ip = "127.0.0.1"
+ports = [8080]
+root = "/"
+error_pages = { 404 = "404.html", 405 = "405.html"}
+listing = true
+
+[[servers.routes]]
+path = "/"
+methods = ["GET"]
+default_file = "index.html"
+need_session = true
+redirect = { "/auth" = "auth.html" }
+
+[[servers.routes]]
+path = "/auth"
+methods = ["GET", "POST"]
+default_file = "auth.html"
+need_session = false
+
+[[servers.routes]]
+path = "/ftk"
+methods = ["GET"]
+default_file = "ftk.html"
+need_session = false
+
+[[servers.routes]]
+path = "/upload"
+methods = ["GET", "POST", "DELETE"]
+default_file = "upload.html"
+need_session = false
+
+# ##################################################
+
+[[servers]]
+host = "public-web-server"
+ip = "127.0.0.1"
+ports = [8080]
+root = "/"
+listing = false
+
+[[servers.routes]]
+path = "/"
+methods = ["GET"]
+default_file = "index.html"
+need_session = true
+redirect = { "/auth" = "auth.html" }
+
+[[servers.routes]]
+path = "/auth"
+methods = ["GET", "POST"]
+default_file = "auth.html"
+need_session = false
