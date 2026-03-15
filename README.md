@@ -20,6 +20,7 @@
 - [Usage](#usage)
 - [Contributors](#contributors)
   - [Authors](#authors)
+- [License](#license)
 
 ## Tech Stack
 
@@ -355,3 +356,7 @@ cargo r
 
 [shfana](http://learn.zone01kisumu.ke/git/shfana)
 [rogwel](http://learn.zone01kisumu.ke/git/rogwel)
+
+## License
+
+[![MIT](https://shields.io/badge/License-MIT-black)](LICENSE)
