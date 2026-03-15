@@ -1,0 +1,116 @@
+# ----- Edition Setting -----
+
+# Rust edition to use
+# Default: 2015
+edition = "2021"
+
+
+# ----- Basic Formatting -----
+
+# Maximum width of each line
+# Default: 100
+# max_width = 75
+
+
+# ----- Width & Alignment Controls -----
+
+# Maximum width of the chain to fit on a single line
+# Default: 60
+chain_width = 30
+
+# Maximum width for structure literals
+# Default: 18
+struct_lit_width = 10
+
+# Maximum width for function-like attributes
+# Default: 70
+attr_fn_like_width = 25
+
+# Maximum width of function call arguments
+# Default: 60
+fn_call_width = 45
+
+# Minimum width for struct field alignment
+# Default: 0
+struct_field_align_threshold = 20
+
+
+# ----- Imports -----
+
+# Organize imports in groups
+# Default: true
+group_imports = "StdExternalCrate"
+
+
+# ----- Functions & Control Flow -----c
+
+# Allow functions to be formatted on a single line
+# Default: false
+fn_single_line = true
+
+
+# ----- Layout & Style Controls -----
+
+# Control how braces are placed in control flow constructs
+# Options: "AlwaysSameLine", "ClosingNextLine", "AlwaysNextLine"
+# Default: "AlwaysSameLine"
+control_brace_style = "ClosingNextLine"
+
+# Control the layout of function parameters
+# Options: "Mixed", "Tall", "Compressed"
+# Default: "Mixed"
+fn_params_layout = "Tall"
+
+# Control the layout of imports
+# Options: "Mixed", "Horizontal", "Vertical"
+# Default: "Mixed"
+imports_layout = "Vertical"
+
+# Control how imports are grouped
+# Options: "Preserve", "Crate", "Module", "One"
+# Default: "Preserve"
+imports_granularity = "One"
+
+
+# ----- Code Organization -----
+
+# Reorder impl items in a consistent way
+# Default: false
+reorder_impl_items = true
+
+
+# ----- Code Structure -----
+
+# Format string literals where necessary
+# Default: false
+format_strings = true
+
+
+# ----- Code Style Shortcuts -----
+
+# Use field init shorthand when possible
+# Default: false
+use_field_init_shorthand = true
+
+# Use try shorthand (e.g., `x?` instead of `try!(x)`)
+# Default: false
+use_try_shorthand = true
+
+
+# ----- Comments & Documentation -----
+
+# Maximum length of comments
+# Default: 80
+comment_width = 75
+
+# Wrap comments at maximum width
+# Default: false
+wrap_comments = true
+
+# Normalize comments: convert /* */ to //
+# Default: false
+normalize_comments = true
+
+# Normalize doc attributes: convert //! to /** */
+# Default: false
+normalize_doc_attributes = true
