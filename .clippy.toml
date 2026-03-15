@@ -1,0 +1,90 @@
+# ----- Code Complexity -----
+
+# Maximum cognitive complexity a function can have
+# Default: 25
+cognitive-complexity-threshold = 20
+
+# Maximum allowed size for enum variants
+# Default: 200 bytes
+enum-variant-size-threshold = 250
+
+# Maximum number of arguments a function can have
+# Default: 7
+too-many-arguments-threshold = 6
+
+
+# ----- Code Style -----
+
+# Type names that are not considered as blacklisted
+# Default: empty list
+doc-valid-idents = ["ClipPy", "OAuth", "GraphQL", "ECMAScript", "IPv4", "IPv6"]
+
+# Maximum number of lines for a single function
+# Default: 100
+too-many-lines-threshold = 100
+
+
+# ----- Performance -----
+
+# Maximum size (in bytes) for passing an array by value
+# Default: 512
+array-size-threshold = 512
+
+
+# ----- Type System -----
+
+# Maximum complexity threshold for type definitions
+# Default: 250
+type-complexity-threshold = 250
+
+
+# ----- Test Configuration -----
+
+# Allows certain non-standard naming conventions
+# Default: false
+allow-unwrap-in-tests = true
+
+
+
+# absolute-paths-allowed-crates             enum-variant-size-threshold
+# absolute-paths-max-segments               excessive-nesting-threshold
+# accept-comment-above-attributes           future-size-threshold
+# accept-comment-above-statement            ignore-interior-mutability
+# allow-comparison-to-zero                  large-error-threshold
+# allow-dbg-in-tests                        lint-inconsistent-struct-field-initializers
+# allow-expect-in-tests                     literal-representation-threshold
+# allow-indexing-slicing-in-tests           matches-for-let-else
+# allow-mixed-uninlined-format-args         max-fn-params-bools
+# allow-one-hash-in-raw-strings             max-include-file-size
+# allow-panic-in-tests                      max-struct-bools
+# allow-print-in-tests                      max-suggested-slice-pattern-length
+# allow-private-module-inception            max-trait-bounds
+# allow-renamed-params-for                  min-ident-chars-threshold
+# allow-unwrap-in-tests                     missing-docs-in-crate-items
+# allow-useless-vec-in-tests                module-item-order-groupings
+# allowed-dotfiles                          msrv
+# allowed-duplicate-crates                  pass-by-value-size-limit
+# allowed-idents-below-min-chars            pub-underscore-fields-behavior
+# allowed-prefixes                          semicolon-inside-block-ignore-singleline
+# allowed-scripts                           semicolon-outside-block-ignore-multiline
+# allowed-wildcard-imports                  single-char-binding-names-threshold
+# arithmetic-side-effects-allowed           source-item-ordering
+# arithmetic-side-effects-allowed-binary    stack-size-threshold
+# arithmetic-side-effects-allowed-unary     standard-macro-braces
+# array-size-threshold                      struct-field-name-threshold
+# avoid-breaking-exported-api               suppress-restriction-lint-in-const
+# await-holding-invalid-types               third-party
+# blacklisted-names                         too-large-for-stack
+# cargo-ignore-publish                      too-many-arguments-threshold
+# check-private-items                       too-many-lines-threshold
+# cognitive-complexity-threshold            trait-assoc-item-kinds-order
+# cyclomatic-complexity-threshold           trivial-copy-size-limit
+# disallowed-macros                         type-complexity-threshold
+# disallowed-methods                        unnecessary-box-size
+# disallowed-names                          unreadable-literal-lint-fractions
+# disallowed-types                          upper-case-acronyms-aggressive
+# doc-valid-idents                          vec-box-size-threshold
+# enable-raw-pointer-heuristic-for-send     verbose-bit-mask-threshold
+# enforce-iter-loop-reborrow                warn-on-all-wildcard-imports
+# enforced-import-renames                   warn-unsafe-macro-metavars-in-private-macros
+# enum-variant-name-threshold               
